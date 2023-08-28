@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Formulario";
+}
+
+<div class="container">
+    <h1 class="display-4">Formulario de Registro</h1>
+    
+    <form asp-controller="Home" asp-action="FRegistro" method="post">
+       
+        <label for="nom">Nombres:</label>
+        <input type="text" name="nom" class="input-box"/><br><br>
+
+        <label for="ape">Apellidos:</label>
+        <input type="text" name="ape" class="input-box"/><br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="text" name="edad" class="input-box"/><br><br>
+
+        <label >Genero:</label>
+        <div class="radio-group">
+            <input type="radio" name="genero" value="Masculino">
+            <label for="genM">Masculino</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" name="genero" value="Femenino" class="radio-group">
+            <label for="genF">Femenino</label><br><br>
+        </div>
+
+        <label for="equipo">Equipo:</label>
+        <input type="text" name="equipo" class="input-box"/><br><br>
+        
+        <label for="cat">Categoria:</label>
+        <select name="cat" class="combo-box">
+            <option value="seleccionar">---------</option>
+            <option value="Sub 17">Sub 17</option>
+            <option value="Sub 20">Sub 20</option>
+            <option value="Mayores">Mayores</option>
+
+        </select><br><br>
+
+         <label for="temp">Temporadas:</label>
+        <select name="temp" class="combo-box">
+            <option value="seleccionar">---------</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+
+        </select><br><br>
+
+        <label for="faltas">A tenido faltas:</label>
+        <div class="radio-group">
+            <input type="radio" id="faltasSi" name="numfalta" value="SI" onclick="mfalta()">
+            <label for="faltasSi">Si</label>
+        </div>
+        <div class="radio-group">
+            <input type="radio" id="faltasNo" name="numfalta" value="NO" onclick="mfalta()">
+            <label for="faltasNo">No</label><br><br>
+        </div>
+        
+    
+
+        <div id="nfalta" style="display: none;" >
+            <label for="nuFalta">Ingrese el numero de Faltas:</label>
+            <input type="text" id="nufalta" name="nufalta" class="input-box"/><br><br>
+
+        </div>
+
+        <button type="submit" class="submit-button" value="FRegistro">Enviar</button>
+
+    </form>
+
+    <h1>@ViewData["Message"]</h1>
+
+</div>
+
+<script>
+    function mfalta() {
+        var faltas = document.getElementById("faltasSi");
+        var nfalta = document.getElementById("nfalta");
+
+        if (faltas.checked) {
+            nfalta.style.display = "block";
+        } else {
+            nfalta.style.display = "none";
+        }
+    }
+</script>
