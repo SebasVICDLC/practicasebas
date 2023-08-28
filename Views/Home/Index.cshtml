@@ -74,4 +74,15 @@
 
 </div>
 
+<script>
+    function mfalta() {
+        var faltas = document.getElementById("faltasSi");
+        var nfalta = document.getElementById("nfalta");
+
+        if (faltas.checked) {
+            nfalta.style.display = "block";
+        } else {
+            nfalta.style.display = "none";
+        }
+    }
 </script>
